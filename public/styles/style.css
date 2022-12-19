@@ -1,0 +1,262 @@
+/* Font Family
+font-family: 'Lora', serif;
+font-family: 'Raleway', sans-serif;
+ */
+
+* {
+  font-family: "Raleway", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Global */
+
+h1 {
+  font-weight: 800;
+  font-size: 3rem;
+  padding: 20px;
+  color: lightskyblue;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+input {
+  width: 400px;
+  height: 25px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin: 5px 0px 20px 0px;
+}
+
+.button {
+  width: inherit;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightskyblue;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: deepskyblue;
+  cursor: pointer;
+}
+
+/* Navigation */
+.header {
+  height: 70px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  font-weight: 600;
+  width: 1000px;
+  padding: 10px;
+  display: flex;
+  font-family: "Raleway", sans-serif;
+  justify-content: space-between;
+}
+
+.menu ul {
+  display: flex;
+}
+
+.menu li {
+  padding-right: 30px;
+}
+
+.menu a {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.menu a:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.menu a.active {
+  color: lightskyblue;
+}
+
+/* Home */
+main {
+  padding: 50px;
+}
+
+/* Login */
+.login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login p {
+  margin: 30px 0px 15px 0px;
+}
+.login .register-link {
+  color: lightskyblue;
+}
+
+/* Register */
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  margin: 20px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+table td {
+  padding: 10px;
+}
+table tr td:first-child {
+  font-weight: 600;
+}
+
+.btns {
+  width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+.profile .button {
+  width: 100px;
+}
+
+.comments {
+  display: flex;
+  align-items: center;
+}
+
+.comments * {
+  padding: 10px;
+  margin: 0;
+}
+.comments img {
+  width: 50px;
+  height: 50px;
+}
+
+.comments-list * {
+  padding: 5px;
+}
+.comments-list {
+  display: flex;
+}
+.comments-list img {
+  width: 40px;
+  height: 40px;
+}
+
+.comments-list-container {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments-list-user {
+  font-weight: 600;
+}
+
+.comments-list-container form {
+  width: 100%;
+  display: flex;
+}
+
+.comments-list-buttons button {
+  border: none;
+  background-color: white;
+}
+
+.comments-list-buttons button:hover {
+  color: deepskyblue;
+  cursor: pointer;
+}
+
+.comment-edit {
+  width: inherit;
+}
+/* Edit Profile */
+.edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Users */
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.users h1 {
+  margin-bottom: 20px;
+}
+
+.search-field {
+  outline: none;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 14px;
+}
+
+.profile-img {
+  width: 100px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 50%;
+}
+
+.profile-img:hover {
+  opacity: 100%;
+}
+
+.profile-img div {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+.profile-img img {
+  width: 50px;
+  height: 50px;
+}

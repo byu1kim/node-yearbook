@@ -1,0 +1,40 @@
+<div class="edit">
+    <h1>Edit Profile</h1>
+    <form action="/profile/edit/<%= user.id %> " method="POST" enctype="multipart/form-data" class="form">
+
+        <label for="username">Username</label>
+        <input name="username" type="text" value="<%= user.username ? user.username : "" %>">
+
+        <label for="email">Email</label>
+        <input name="email" type="text" value="<%= user.email? user.email: "" %>">
+
+        <label for="firstName">First Name</label>
+        <input name="firstName" type="text" value="<%= user.firstName ? user.firstName : "" %>">
+
+        <label for="lastName">Last Name</label>
+        <input name="lastName" type="text" value="<%= user.lastName ? user.lastName : "" %>">
+
+        <label for="password">Password</label>
+        <input name="password" type="password">
+
+        <label for="passwordConfirm">Password Confirmation</label>
+        <input name="passwordConfirm" type="password">
+
+        <label for="interests">Interests</label>
+        <input name="interests" type="text" value="<%= user.interests ? user.interests : "" %>">
+
+        <label for="photo">Profile Photo</label>
+        <input name="photo" type="file">
+
+        <label for="username">Role</label>
+        <select name="roles">
+            <option value="User" <%= user.roles=="User" ? "selected" : "" %>>User</option>
+            <option value="Admin" <%= user.roles=="Admin" ? "selected" : "" %>>Admin</option>
+            <option value="Manager" <%= user.roles=="Manager" ? "selected" : "" %>>Manager</option>
+        </select>
+
+        <input type="submit" value="Submit" class="button">
+
+    </form>
+    <%= errorMessage %><br />
+</div>

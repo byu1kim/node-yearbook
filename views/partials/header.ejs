@@ -1,0 +1,28 @@
+<nav id="menu" class="menu">
+    <ul>
+        <li>LOGO</li>
+        <li><a href="/" class="<%= reqInfo.url == "/" ? "active" : ""%>">Home</a></li>
+        <% if (reqInfo.authenticated){ %>
+        <li><a href="/profile/users" class="<%= reqInfo.url == "/profile/users" ? "active" : ""%>">Users</a>
+        </li><%}%>
+    </ul>
+
+    <ul>
+        <% if (reqInfo.roles.includes("Admin")) { %>
+        <li>Admin</li>
+        <% } %>
+        <% if (reqInfo.roles.includes("Admin") || reqInfo.roles.includes("Manager")) { %>
+        <li>Manager</li>
+        </li> <% } %>
+        <% if (reqInfo.authenticated){ %>
+        <li><a href="/profile" class="<%= reqInfo.url == "/profile" ? "active" : ""%>">Profile</a></li>
+
+
+        <li><a href="/logout" class="<%= reqInfo.url == "/logout" ? "active" : ""%>">Logout</a></li>
+        <% } else { %>
+        <li><a href="/login" class="<%= reqInfo.url == "/login" ? "active" : ""%>">Login</a></li>
+        <li><a href="/register" class="<%= reqInfo.url == "/register" ? "active" : ""%>">Register</a></li>
+        <% } %>
+    </ul>
+
+</nav>
