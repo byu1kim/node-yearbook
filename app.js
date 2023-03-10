@@ -2,7 +2,7 @@
    A01032088 Byul Kim */
 
 "use strict";
-
+console.log("see changes");
 // import
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -17,8 +17,7 @@ const LocalStrategy = require("passport-local");
 
 // DB
 const mongoose = require("mongoose");
-const uri =
-  "mongodb+srv://caxbelle:x8Pp60Eg77Gpu0RD@ssd-0.vfopyf9.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://caxbelle:UfFX1tcO8sE4Qwrw@ssd-0.vfopyf9.mongodb.net/practice?retryWrites=true&w=majority";
 mongoose.connect(uri, {
   dbName: "yearBook",
   useNewUrlParser: true,
