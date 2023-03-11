@@ -1,20 +1,34 @@
 <div class="users">
-    <h1>Users</h1>
+  <h1>Users</h1>
 
-    <form id="profile-search" action="/profile/users" method="GET">
-        <input type="text" name="search" id="search" placeholder="Search by Name" value="<%= search %>"
-            class="search-field">
-        <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
+  <form id="profile-search" action="/profile/users" method="GET">
+    <select name="filter">
+      <option name="username" value="username">username</option>
+      <option name="name" value="name">name</option>
+      <option name="email" value="email">email</option>
+      <option name="interests" value="interests">interests</option>
+    </select>
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Search by Name"
+      value="<%= search %>"
+      class="search-field"
+    />
+    <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
 
-    <div class="grid-container">
-        <% for (let i = 0 ; i < users.length ; i++) { %>
-        <div class="profile-img"><a href="/profile/<%=users[i].id%>">
-                <div><img src="<%= users[i].photoPath ?  users[i].photoPath : "/images/noprofile.jpg"%>" /></div>
-                <div><%= users[i].firstName %> <%= users[i].lastName %></div>
-            </a>
-        </div>
+  <div class="grid-container">
+    <% for (let i = 0 ; i < users.length ; i++) { %>
+    <div class="profile-img">
+      <a href="/profile/<%=users[i].id%>">
+        <div><img src="<%= users[i].photoPath ? users[i].photoPath : "/images/noprofile.jpg"%>" /></div>
 
-        <% } %>
+        <div><%= users[i].firstName %> <%= users[i].lastName %></div>
+      </a>
     </div>
+
+    <% } %>
+  </div>
 </div>

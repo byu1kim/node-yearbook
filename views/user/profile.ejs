@@ -1,98 +1,44 @@
 <div class="profile">
-    <h1>
-        PROFILE
-    </h1>
-    <div class="image"><img src="<%=user.photoPath ? user.photoPath : "/images/noprofile.jpg"%>"></div>
+  <h1>PROFILE</h1>
+  <div class="image"><img src="<%=user.photoPath ? user.photoPath : "/images/noprofile.jpg"%>"></div>
 
-    <table>
-        <tr>
-            <td>User Name</td>
-            <td><%= user.username %></td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td><%= user.email %></td>
-        </tr>
-        <tr>
-            <td>First Name</td>
-            <td><%= user.firstName %></td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td><%= user.lastName %></td>
-        </tr>
-        <tr>
-            <td>Interests</td>
-            <td><%= user.interests %></td>
-        </tr>
-        <tr>
-            <td>Role</td>
-            <td><%=user.roles%></td>
-        </tr>
+  <table>
+    <tr>
+      <td>User Name</td>
+      <td><%= user.username %></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><%= user.email %></td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+      <td><%= user.firstName %></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><%= user.lastName %></td>
+    </tr>
+    <tr>
+      <td>Interests</td>
+      <td><%= user.interests %></td>
+    </tr>
+    <tr>
+      <td>Role</td>
+      <td><%=user.roles%></td>
+    </tr>
+  </table>
 
-    </table>
-
-    <!-- Comment Area -->
-    <div class="btns">
-        <% if (reqInfo.roles.includes("Admin") || reqInfo.roles.includes("Manager") || reqInfo.id == user.id) { %>
-        <a href="/profile/edit/<%=user.id %>"><button class="button">Edit</button></a>
-        <% } %>
-        <% if (reqInfo.roles.includes("Admin")  || reqInfo.id == user.id) { %>
-        <a href="/profile/delete/<%=user.id %>"><button class="button">Delete</button></a>
-        <% } %>
-    </div>
-
-    <%= errorMessage %>
-
-    <div class="comments">
-        <img src="<%=reqInfo.photoPath ? reqInfo.photoPath : "/images/noprofile.jpg"%>" />
-        <form action="/profile/<%=user.id%>" method="POST">
-            <input type="hidden" name="userid" value="<%= user.id %>">
-            <input type="hidden" name="commenterid" value="<%= reqInfo.id %>">
-            <input type="hidden" name="commenterphoto" value="<%= reqInfo.photoPath %>">
-            <input type="text" name="comment" placeholder="Add a comment" />
-            <button type="submit">Post</button>
-        </form>
-    </div>
-
-
-    <h2>Comment</h2>
-    <% for (let i = 0 ; i < user.comments.length ; i++) { %>
-    <div class="comments-list">
-        <div class="comments-list-img">
-            <img src="<%=user.comments[i].photoPath ? user.comments[i].photoPath : "/images/noprofile.jpg"%>" />
-        </div>
-        <div class="">
-            <div class="comments-list-user"><%= user.comments[i].commenter %></div>
-            <div class="comments-list-container">
-                <% if(editid==user.comments[i].id) { %>
-                <form action="/profile/<%=user.id%>/comment/edit/<%=user.comments[i].id%>" method="POST">
-                    <input type="hidden" name="userid" value="<%= user.id %>">
-                    <input type="hidden" name="commentid" value="<%= user.comments[i].id %>">
-                    <input type="text" name="comment" class="comment-edit" value="<%= user.comments[i].comment %> ">
-                    <div class="comments-list-buttons"><button type="submit">Post</button></div>
-                    <a href="/profile/<%=user.id%>/comment/delete/<%= user.comments[i].id %> "
-                        class="comments-list-buttons"><button>Delete</button></a>
-                </form>
-
-                <% } else {%>
-                <div>
-                    <%= user.comments[i].comment %>
-                    <% } %>
-                </div>
-                <% if(editid!=user.comments[i].id) { %>
-
-                <div class="comments-list-buttons">
-                    <% if (reqInfo.roles.includes("Admin") || reqInfo.roles.includes("Manager") || reqInfo.id == user.comments[i].userid) { %>
-                    <a href="/profile/<%=user.id%>/comment/edit/<%= user.comments[i].id %> "><button>Edit</button></a>
-                    <a
-                        href="/profile/<%=user.id%>/comment/delete/<%= user.comments[i].id %> "><button>Delete</button></a>
-                    <% } %>
-                </div>
-                <% } %>
-            </div>
-        </div>
-    </div>
+  <div class="btns">
+    <% if (reqInfo.roles.includes("Admin") || reqInfo.roles.includes("Manager") || reqInfo.id == user.id) { %>
+    <a href="/profile/edit/<%=user.id %>"><button class="button">Edit</button></a>
+    <% } %> <% if (reqInfo.roles.includes("Admin") || reqInfo.id == user.id) { %>
+    <a href="/profile/edit/password/<%=user.id %>"><button class="button">Change Password</button></a>
+    <Form action="/profile/delete/<%=user.id %>" method="POST"
+      ><button type="submit" class="button">Delete</button></Form
+    >
     <% } %>
+  </div>
 
+  <%= errorMessage %> <%- include('../partials/comments.ejs') %>
 </div>

@@ -1,0 +1,15 @@
+<div class="edit">
+  <h1>Change Password</h1>
+  <form action="/profile/edit/password/<%= userid %> " method="POST" enctype="multipart/form-data" class="form">
+    <label for="password">Old Password</label>
+    <input name="oldPassword" type="password" />
+    <label for="newPassword">New Password</label>
+    <input name="newPassword" type="password" />
+
+    <label for="passwordConfirm">New Password Confirmation</label>
+    <input name="passwordConfirm" type="password" />
+
+    <input type="submit" value="Submit" class="button" />
+  </form>
+  <%= errorMessage %><br />
+</div>

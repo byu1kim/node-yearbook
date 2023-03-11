@@ -1,39 +1,30 @@
 const User = require("../models/User");
+const Comment = require("../models/Comment");
 
 class CommentOps {
-  // Constructor
   CommentOps() {}
 
   async addComment(profileUser, comment) {
-    profileUser.comments.push(comment);
-    let finalUser = await profileUser.save();
-    return finalUser;
+    const newComment = await Comment.create(comment);
+    profileUser.comments.push(newComment);
+    let newProfileUser = await profileUser.save();
+    return newProfileUser;
   }
 
-  async updateComment(profileUser, comment) {
-    const comments = profileUser.comments;
+  async updateComment(newComment) {
     try {
-      for (let i = 0; i < comments.length; i++) {
-        if (comments[i].id == comment.commentid) {
-          comments[i].comment = comment.comment;
-          let updatedUser = await profileUser.save();
-        }
-      }
+      let oldComment = await Comment.findById(newComment.id);
+      oldComment.comment = newComment.comment;
+      await oldComment.save();
       return "S";
     } catch (e) {
       return e;
     }
   }
 
-  async deleteComment(profileUser, commentid) {
-    const comments = profileUser.comments;
+  async deleteComment(id) {
     try {
-      for (let i = 0; i < comments.length; i++) {
-        if (comments[i].id == commentid) {
-          comments.splice(i, 1);
-          profileUser.save();
-        }
-      }
+      let deletedComment = await Comment.findByIdAndDelete(id);
       return "S";
     } catch (e) {
       return e;

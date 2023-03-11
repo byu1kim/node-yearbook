@@ -1,18 +1,11 @@
 const mongoose = require("mongoose");
-const passportLocalmongoose = require("passport-local-mongoose");
 
 // Comment Schema
 const commentSchema = mongoose.Schema({
-  userid: {
-    type: String,
-    index: true,
-  },
-  comment: {
-    type: String,
-  },
+  comment: { type: String },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  createdAt: { type: Date, required: true, default: Date.now },
 });
-
-commentSchema.plugin(passportLocalmongoose);
 
 const Comment = mongoose.model("Comment", commentSchema);
 

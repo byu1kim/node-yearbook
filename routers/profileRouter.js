@@ -15,8 +15,12 @@ router.get("/:id", ProfileController.Profile);
 router.get("/edit/:id", ProfileController.Edit);
 router.post("/edit/:id", ProfileController.EditPost);
 
+// Edit Password
+router.get("/edit/password/:id", ProfileController.EditPassword);
+router.post("/edit/password/:id", ProfileController.EditPasswordPost);
+
 // Delete
-router.get("/delete/:id", ProfileController.Delete);
+router.post("/delete/:id", ProfileController.Delete);
 
 // Comment
 router.post("/:id", CommentController.AddComment);
